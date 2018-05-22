@@ -1,0 +1,33 @@
+{
+  "name": "ReactKata",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "android": "yarn build && concurrently -r 'yarn build:watch' 'react-native run-android'",
+    "ios": "yarn build && concurrently -r 'yarn build:watch' 'react-native run-ios'",
+    "devtools": "react-devtools",
+    "clean": "rimraf -rf ./lib",
+    "test": "node node_modules/jest/bin/jest.js --coverage",
+    "lint": "tslint src/**/*.ts*",
+    "lint:fix": "tslint src/**/*.ts* --fix",
+    "copy:assets": "cp -r ./src/shared/icons ./lib/shared",
+    "build": "yarn copy:assets && tsc",
+    "build:watch": "yarn copy:assets && yarn build -- --watch",
+    "pree2e": "yarn build && detox build",
+    "e2e": "detox test"
+  },
+  "dependencies": {
+    "react": "16.3.1",
+    "react-native": "0.55.4"
+  },
+  "devDependencies": {
+    "babel-jest": "22.4.4",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "22.4.4",
+    "react-test-renderer": "16.3.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
