@@ -2,6 +2,8 @@
 #
 .DS_Store
 
+yarn.lock
+
 # Xcode
 #
 build/
@@ -55,4 +57,3 @@ buck-out/
 # Bundle artifact
 *.jsbundle
 
-yarn.lock
