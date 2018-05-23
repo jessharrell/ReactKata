@@ -9,15 +9,20 @@ describe('getCurrent', () => {
         await device.reloadReactNative();
     });
 
-    it('should return value from server', async () => {
-        const recipe1 = {"id": 1, "name": "Biscuits and Gravy", "rating": 5};
-        const recipe2 = {"id": 2, "name": "Tacos", "rating": 6};
+    describe('should get recipes from server', () => {
+        let recipe1;
+        let recipe2;
 
-        setValue({"items": [recipe1, recipe2]});
+        beforeEach(() => {
+            recipe1 = {"id": 1, "name": "Biscuits and Gravy", "rating": 5};
+            recipe2 = {"id": 2, "name": "Tacos", "rating": 6};
+            setValue({"items": [recipe1, recipe2]});
+        });
 
-        const current = await getCurrent();
-
-        expect(current).to.eql({"items": [recipe1, recipe2]});
+        it("should get recipes from the server", async () => {
+            const current = await getCurrent();
+            expect(current).to.eql({"items": [recipe1, recipe2]});
+        });
 
     });
 

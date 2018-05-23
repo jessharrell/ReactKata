@@ -16,7 +16,7 @@ export default class App extends Component<Props> {
         return (
             <View>
                 <FlatList
-                    data={getCurrent()}
+                    data={getCurrent().items}
                     renderItem={({item}) => <Text>{item.key}</Text>}
                 />
             </View>
