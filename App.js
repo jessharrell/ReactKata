@@ -2,23 +2,40 @@ import React, {Component} from 'react';
 import {FlatList, Text, View} from "react-native";
 // import {FlatList, StyleSheet, Text, View} from 'react-native';
 
-// let fetch = require("node-fetch");
-
-export async function getCurrent() {
-    return await fetch('http://127.0.0.1:9000/')
-        .then((res) => res.json())
-        .catch((err) => err);
-}
-
 type Props = {};
 export default class App extends Component<Props> {
+
+    constructor(props){
+        super(props);
+        this.state = { isLoading: true, dataSource: ["zeroth"]};
+    }
+
+    async getCurrent() {
+        return await fetch('http://127.0.0.1:9000/recipes')
+            .then((response) => response.json())
+            .then((resJson) => {
+                this.setState({
+                    isLoading: false,
+                    dataSource: resJson.items,
+                });
+            })
+            .catch((err) => err);
+    }
+
+    componentDidMount() {
+        this.getCurrent()
+    }
+
     render() {
+
         return (
             <View>
+                <Text>This is the top</Text>
                 <FlatList
-                    data={getCurrent().items}
-                    renderItem={({item}) => <Text id={"Recipe" + item.id}>{item.name}</Text>}
+                    data={this.state.dataSource}
+                    renderItem={({item}) => <Text>{item.name}</Text>}
                 />
+                <Text>This is the bottom</Text>
             </View>
         );
     }

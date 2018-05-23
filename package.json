@@ -5,11 +5,12 @@
   "scripts": {
     "start": "react-native start",
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "yarn run start-server && react-native run-ios",
     "devtools": "react-devtools",
     "test": "jest --testPathPattern=./test",
     "pree2e": "detox build",
-    "e2e": "detox test"
+    "e2e": "detox test",
+    "start-server": "node smoke-test-server.js &"
   },
   "dependencies": {
     "express": "^4.16.2",
