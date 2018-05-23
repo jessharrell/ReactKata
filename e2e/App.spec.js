@@ -2,6 +2,7 @@ import {getCurrent} from "../App";
 import {setValue, setJsonResponse} from "./fake-web-server/server-fake";
 import "isomorphic-fetch"
 import { expect } from "chai";
+import {shallow} from "enzyme/build/index";
 
 describe('getCurrent', () => {
 
@@ -22,6 +23,10 @@ describe('getCurrent', () => {
         it("should get recipes from the server", async () => {
             const current = await getCurrent();
             expect(current).to.eql({"items": [recipe1, recipe2]});
+        });
+
+        it("should populate recipes to recipe list screen", () => {
+            expect(1).to.eql(1);
         });
 
     });

@@ -17,7 +17,7 @@ export default class App extends Component<Props> {
             <View>
                 <FlatList
                     data={getCurrent().items}
-                    renderItem={({item}) => <Text>{item.key}</Text>}
+                    renderItem={({item}) => <Text id={"Recipe" + item.id}>{item.name}</Text>}
                 />
             </View>
         );
