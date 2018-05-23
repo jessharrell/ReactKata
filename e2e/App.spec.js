@@ -10,14 +10,14 @@ describe('getCurrent', () => {
     });
 
     it('should return value from server', async () => {
-        const recipe1 = 'Biscuits and Gravy';
-        const recipe2 = 'Tacos';
+        const recipe1 = {"id": 1, "name": "Biscuits and Gravy", "rating": 5};
+        const recipe2 = {"id": 2, "name": "Tacos", "rating": 6};
 
-        setValue({});
+        setValue({"items": [recipe1, recipe2]});
 
         const current = await getCurrent();
 
-        expect(current).to.eql({});
+        expect(current).to.eql({"items": [recipe1, recipe2]});
 
     });
 
