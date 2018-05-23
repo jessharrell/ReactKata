@@ -18,7 +18,7 @@ function startServerAsync(port) {
     return new Promise((resolve, reject) => {
         const app = express();
         app.get('/', (req, res) => {
-            res.json({ Value: currentValue });
+            res.json(currentValue);
         });
         httpServer = app.listen(port, (err) => {
             if (err)

@@ -1,9 +1,8 @@
 import React from 'react';
-import { Text } from 'react-native';
-import App from './App';
+import { Text, FlatList } from 'react-native';
+import App from '../App';
 import { expect } from "chai";
 
-import renderer from 'react-test-renderer';
 import Enzyme, { shallow } from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
 
@@ -22,9 +21,10 @@ describe('App', () => {
     });
 
     test('renders a list of two recipes', () => {
-        const recipe1 = 'Biscuits and Gravy';
-        const recipe2 = 'Tacos';
-
-        expect(app.find(Text)).to.have.length(3);
+        expect(app.find(FlatList)).to.have.length(1);
     });
+
+    test('something', () => {
+        expect(1).to.eql(1);
+    })
 });
