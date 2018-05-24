@@ -1,8 +1,5 @@
-import {getCurrent} from "../App";
-import {setValue, setJsonResponse} from "./fake-web-server/server-fake";
+import {setValue} from "./fake-web-server/server-fake";
 import "isomorphic-fetch"
-import { expect } from "chai";
-import {shallow} from "enzyme/build/index";
 
 describe('getCurrent', () => {
 
@@ -17,16 +14,21 @@ describe('getCurrent', () => {
         beforeEach(() => {
             recipe1 = {"id": 1, "name": "Biscuits and Gravy", "rating": 5};
             recipe2 = {"id": 2, "name": "Tacos", "rating": 6};
-            setValue({"items": [recipe1, recipe2]});
+            setValue({"items": [recipe1]});
         });
 
-        it("should get recipes from the server", async () => {
-            const current = await getCurrent();
-            expect(current).to.eql({"items": [recipe1, recipe2]});
-        });
+        // it("should get recipes from the server", async () => {
+        //     const current = await getCurrent();
+        //     expect(current).to.eql({"items": [recipe1, recipe2]});
+        // });
 
-        it("should populate recipes to recipe list screen", () => {
-            expect(1).to.eql(1);
+        it("should populate recipes to recipe list screen", async () => {
+            // await waitFor(element(by.id('FizzBuzzLabel'))).toHaveText('Fizz');
+            await expect(element(by.type("RCTTextView")).atIndex(1)).toHaveText("This is the top");
+            // await expect(element(by.type("RCTTextView")).atIndex(2)).toHaveText("Biscuits and Gravy");
+            // await expect(element(by.id("all")).atIndex(0)).toBeVisible()
+            // await expect(element(by.id("all")).atIndex(100)).toBeVisible()
+            await expect(element(by.id('test1'))).toHaveText('Biscuits and Gravy');
         });
 
     });

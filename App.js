@@ -11,7 +11,7 @@ export default class App extends Component<Props> {
     }
 
     async getCurrent() {
-        return await fetch('http://127.0.0.1:9000/recipes')
+        return await fetch('http://127.0.0.1:9001/recipes')
             .then((response) => response.json())
             .then((resJson) => {
                 this.setState({
@@ -29,11 +29,12 @@ export default class App extends Component<Props> {
     render() {
 
         return (
-            <View>
-                <Text>This is the top</Text>
+            <View style={{paddingTop: 300}}>
+                <Text testID="Anything">This is the top</Text>
                 <FlatList
                     data={this.state.dataSource}
-                    renderItem={({item}) => <Text>{item.name}</Text>}
+                    renderItem={({item}) => <Text testID={`test${item.id}`}>{item.name}</Text>}
+                    keyExtractor={(item, index) => index.toString()}
                 />
                 <Text>This is the bottom</Text>
             </View>
