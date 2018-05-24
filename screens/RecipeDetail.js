@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Text, View, StyleSheet} from "react-native";
+import {Text, View, StyleSheet, FlatList} from "react-native";
 
 type Props = {};
 export default class RecipeDetail extends Component<Props> {
@@ -8,7 +8,7 @@ export default class RecipeDetail extends Component<Props> {
         return (
             <View>
                 <Text style={style.recipeHeader}>Recipe Name</Text>
-                <Text style={style.recipeDetails}>Recipe Ratings</Text>
+                <FlatList style={style.recipeDetails}>Recipe Ratings</FlatList>
                 <Text style={style.recipeDetails}>Recipe Average Rating</Text>
             </View>
         )
