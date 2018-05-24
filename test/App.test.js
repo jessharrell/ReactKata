@@ -19,12 +19,4 @@ describe('App', () => {
     test('renders as expected', () => {
         expect(app).to.have.length(1);
     });
-
-    test('renders a list of two recipes', () => {
-        expect(app.find(FlatList)).to.have.length(1);
-    });
-
-    test('something', () => {
-        expect(1).to.eql(1);
-    })
 });

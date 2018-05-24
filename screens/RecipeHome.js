@@ -4,6 +4,8 @@ import {FlatList, Text, View, StyleSheet} from "react-native";
 type Props = {};
 export default class RecipeHome extends Component<Props> {
 
+    static navigationOptions = {title: 'Top Notch Recipes'};
+
     constructor(props){
         super(props);
         this.state = { isLoading: true, dataSource: ["zeroth"]};
