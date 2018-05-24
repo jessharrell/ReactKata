@@ -1,14 +1,15 @@
-import React from "react";
-import {Text, View} from "react-native";
+import React, {Component} from "react";
+import {Text, View, StyleSheet} from "react-native";
 
-export default class RecipeDetail {
+type Props = {};
+export default class RecipeDetail extends Component<Props> {
 
     render() {
         return (
             <View>
                 <Text style={style.recipeHeader}>Recipe Name</Text>
-                <Text style={style.recipeDetails}>Recipe Rating</Text>
-                <Text style={style.recipeDetails}>Recipe Ingredients</Text>
+                <Text style={style.recipeDetails}>Recipe Ratings</Text>
+                <Text style={style.recipeDetails}>Recipe Average Rating</Text>
             </View>
         )
 
