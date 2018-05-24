@@ -26,5 +26,20 @@ describe('RecipeDetail', () => {
 
     test('renders a list of individual ratings', () => {
         expect(recipeDetail.find(FlatList)).to.have.length(1);
-    })
+    });
+
+    test('should have the title text it was given', () => {
+        const expectedRecipeName = 'Recipe Name';
+        expect(recipeDetail.find('.recipeName').dive().text().trim()).to.eql(expectedRecipeName);
+    });
+
+    test('should have the average rating it was given', () => {
+        const expectedAverageRating = 'Recipe Average Rating';
+        expect(recipeDetail.find('.recipeAverageRating').dive().text().trim()).to.eql(expectedAverageRating);
+    });
+
+    test('should have the list of ratings it was given', () => {
+        let ratings = recipeDetail.find('.recipeRatings');
+        expect(ratings.length).to.eql(1);
+    });
 });
