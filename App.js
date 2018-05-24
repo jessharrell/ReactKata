@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {FlatList, Text, View} from "react-native";
-// import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {FlatList, Text, View, StyleSheet} from "react-native";
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -29,34 +28,33 @@ export default class App extends Component<Props> {
     render() {
 
         return (
-            <View style={{paddingTop: 300}}>
-                <Text testID="Anything">This is the top</Text>
+            <View style={styles.container}>
                 <FlatList
                     data={this.state.dataSource}
                     renderItem={({item}) => <Text testID={`test${item.id}`}>{item.name}</Text>}
                     keyExtractor={(item, index) => index.toString()}
                 />
-                <Text>This is the bottom</Text>
             </View>
         );
     }
 }
 
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         backgroundColor: '#F5FCFF',
-//     },
-//     welcome: {
-//         fontSize: 20,
-//         textAlign: 'center',
-//         margin: 10,
-//     },
-//     instructions: {
-//         textAlign: 'center',
-//         color: '#333333',
-//         marginBottom: 5,
-//     },
-// });
+const styles = StyleSheet.create({
+    container: {
+        paddingTop: 300,
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    },
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+    },
+    instructions: {
+        textAlign: 'center',
+        color: '#333333',
+        marginBottom: 5,
+    },
+});
