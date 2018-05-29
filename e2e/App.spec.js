@@ -1,4 +1,4 @@
-import {setValue} from "./fake-web-server/server-fake";
+import {setRecipes} from "./fake-web-server/server-fake";
 import "isomorphic-fetch"
 
 describe('getCurrent', () => {
@@ -14,7 +14,7 @@ describe('getCurrent', () => {
         beforeEach(async () => {
             recipe1 = {"id": 1, "name": "Biscuits and Gravy", "rating": 5};
             recipe2 = {"id": 2, "name": "Tacos", "rating": 6};
-            await setValue({"items": [recipe1, recipe2]});
+            await setRecipes({"items": [recipe1, recipe2]});
             await device.reloadReactNative();
         });
 

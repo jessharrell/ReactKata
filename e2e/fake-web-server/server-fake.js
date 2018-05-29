@@ -11,7 +11,7 @@ async function startServer(port) {
     return startServerAsync(port);
 }
 
-function setValue(value) {
+function setRecipes(value) {
     currentValue = value;
 }
 
@@ -35,4 +35,4 @@ function stopServer() {
     httpServer.close();
 }
 
-module.exports = { startServer, stopServer, setValue };
+module.exports = { startServer, stopServer, setRecipes };
