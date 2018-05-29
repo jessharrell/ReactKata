@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import {FlatList, Text, View, StyleSheet} from "react-native";
+import {Button, FlatList, Text, View, StyleSheet, TouchableHighlight} from "react-native";
 
 type Props = {};
 export default class RecipeHome extends Component<Props> {
 
     static navigationOptions = {title: 'Top Notch Recipes'};
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = { isLoading: true, dataSource: ["zeroth"]};
+        this.state = {isLoading: true, dataSource: [{id: 0, name: "test"}]};
     }
 
     async getCurrent() {
@@ -33,7 +33,11 @@ export default class RecipeHome extends Component<Props> {
             <View style={styles.container}>
                 <FlatList
                     data={this.state.dataSource}
-                    renderItem={({item}) => <Text testID={`test${item.id}`}>{item.name}</Text>}
+                    renderItem={({item}) => (
+                        <TouchableHighlight onPress={() => this.props.navigation.navigate("RecipeDetail")}>
+                            <Text testID={`recipe${item.id}`}>{item.name}</Text>
+                        </TouchableHighlight>
+                    )}
                     keyExtractor={(item, index) => index.toString()}
                 />
             </View>

@@ -18,9 +18,21 @@ describe('getCurrent', () => {
         });
 
         it("should populate recipes to recipe list screen", async () => {
-            await expect(element(by.id('test1'))).toHaveText('Biscuits and Gravy');
-            await expect(element(by.id('test2'))).toHaveText('Tacos');
+            await expect(element(by.id('recipe1'))).toHaveText('Biscuits and Gravy');
+            await expect(element(by.id('recipe2'))).toHaveText('Tacos');
         });
+
+        describe("navigation to detail page from home page", () => {
+            beforeEach(async () => {
+                await element(by.id('recipe1')).tap();
+            });
+
+            it('Then I see the list of recipeRatings', async () => {
+                await expect(element(by.id('recipeRatingsTestId'))).toExist();
+                // await expect(element(by.id('recipeRatingsTestId'))).toHaveText('Biscuits and Gravy');
+                // await waitFor(element(by.id('FizzBuzzLabel'))).toHaveText('Fizz');
+            })
+        })
 
     });
 });

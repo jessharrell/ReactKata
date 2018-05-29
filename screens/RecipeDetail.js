@@ -14,7 +14,7 @@ export default class RecipeDetail extends Component<Props> {
     render() {
         return (
             <View>
-                <Text className="recipeName" style={style.recipeHeader}>Recipe Name</Text>
+                <Text className="recipeName" testID="recipeRatingsTestId" style={style.recipeHeader}>Recipe Name</Text>
                 <FlatList
                     className="recipeRatings"
                     style={style.recipeDetails}
