@@ -3,6 +3,7 @@ const express = require('express');
 let currentValue;
 let httpServer;
 async function startServer(port) {
+
     if (httpServer) {
         return;
     }
@@ -17,10 +18,11 @@ function setValue(value) {
 function startServerAsync(port) {
     return new Promise((resolve, reject) => {
         const app = express();
-        app.get('/', (req, res) => {
+        app.get('/recipes', (req, res) => {
             res.json(currentValue);
         });
         httpServer = app.listen(port, (err) => {
+            console.log(`;alkdsjf;laksjd;fklajsdl;fjasl;dkf`);
             if (err)
                 reject(err);
             else

@@ -11,10 +11,11 @@ describe('getCurrent', () => {
         let recipe1;
         let recipe2;
 
-        beforeEach(() => {
+        beforeEach(async () => {
             recipe1 = {"id": 1, "name": "Biscuits and Gravy", "rating": 5};
             recipe2 = {"id": 2, "name": "Tacos", "rating": 6};
-            setValue({"items": [recipe1, recipe2]});
+            await setValue({"items": [recipe1, recipe2]});
+            await device.reloadReactNative();
         });
 
         it("should populate recipes to recipe list screen", async () => {

@@ -12,7 +12,7 @@ export default class RecipeHome extends Component<Props> {
     }
 
     async getCurrent() {
-        return await fetch('http://127.0.0.1:9001/recipes')
+        return await fetch('http://127.0.0.1:9000/recipes')
             .then((response) => response.json())
             .then((resJson) => {
                 this.setState({
@@ -40,6 +40,7 @@ export default class RecipeHome extends Component<Props> {
                     )}
                     keyExtractor={(item, index) => index.toString()}
                 />
+                <Text testID="superbob">anything</Text>
             </View>
         );
     }
