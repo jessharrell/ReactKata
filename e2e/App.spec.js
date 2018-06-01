@@ -23,17 +23,28 @@ describe('getCurrent', () => {
             await expect(element(by.id('recipe2'))).toHaveText('Tacos');
         });
 
-        describe("navigation to detail page from home page", () => {
+        describe("navigation to detail page from home page recipe1", () => {
             beforeEach(async () => {
                 await element(by.id('recipe1')).tap();
             });
 
-            it('Then I see the list of recipeRatings', async () => {
+            it('Then I see Bobs review in the list of recipeRatings', async () => {
                 await expect(element(by.id('recipeRatingsTestId'))).toExist();
-                // await expect(element(by.id('recipeRatingsTestId'))).toHaveText('Biscuits and Gravy');
-                // await waitFor(element(by.id('FizzBuzzLabel'))).toHaveText('Fizz');
-            })
+                await expect(element(by.id('Bob'))).toHaveText('Bob: 23');
+                await expect(element(by.id('Mary'))).toHaveText('Mary: 24');
+            });
         })
 
+        describe("navigation to detail page from home page recipe2", () => {
+            beforeEach(async () => {
+                await element(by.id('recipe2')).tap();
+            });
+
+            it('Then I see Bobs review in the list of recipeRatings', async () => {
+                await expect(element(by.id('recipeRatingsTestId'))).toExist();
+                await expect(element(by.id('Joe'))).toHaveText('Joe: 25');
+                await expect(element(by.id('Fred'))).toHaveText('Fred: 26');
+            });
+        })
     });
 });

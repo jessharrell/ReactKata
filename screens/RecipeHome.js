@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Button, FlatList, Text, View, StyleSheet, TouchableHighlight} from "react-native";
 
 type Props = {};
+
 export default class RecipeHome extends Component<Props> {
 
     static navigationOptions = {title: 'Top Notch Recipes'};
@@ -34,7 +35,8 @@ export default class RecipeHome extends Component<Props> {
                 <FlatList
                     data={this.state.dataSource}
                     renderItem={({item}) => (
-                        <TouchableHighlight onPress={() => this.props.navigation.navigate("RecipeDetail")}>
+                        <TouchableHighlight onPress={() =>
+                            this.props.navigation.navigate("RecipeDetail", {id: item.id})}>
                             <Text testID={`recipe${item.id}`}>{item.name}</Text>
                         </TouchableHighlight>
                     )}
