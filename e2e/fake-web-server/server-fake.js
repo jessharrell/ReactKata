@@ -1,7 +1,10 @@
 const express = require('express');
 
-let currentValue;
+let currentValue = [{"id": 1, "name": "Biscuits and Gravy", "rating": 5},
+    recipe2 = {"id": 2, "name": "Tacos", "rating": 6}];
+// let currentValue;
 let httpServer;
+
 async function startServer(port) {
 
     if (httpServer) {
@@ -35,4 +38,4 @@ function stopServer() {
     httpServer.close();
 }
 
-module.exports = { startServer, stopServer, setRecipes };
+module.exports = {startServer, stopServer, setRecipes};
