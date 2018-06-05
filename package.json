@@ -7,7 +7,7 @@
     "android": "react-native run-android",
     "ios": "yarn run start-server && react-native run-ios",
     "e2e:build": "./node_modules/.bin/detox build",
-    "test:detox:android": "yarn e2e:build --configuration android.emu.debug && ./node_modules/.bin/detox test --configuration android.emu.debug",
+    "test:detox:android": "yarn e2e:build --configuration android.emu.release && ./node_modules/.bin/detox test --configuration android.emu.release",
     "test:detox:ios": "yarn e2e:build --configuration ios.sim.debug && ./node_modules/.bin/detox test --configuration ios.sim.debug",
     "devtools": "react-devtools",
     "test": "jest --testPathPattern=./test",
@@ -61,9 +61,9 @@
       },
       "android.emu.release": {
         "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
-        "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+        "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
         "type": "android.emulator",
-        "name": "Nexus_5X_API_23"
+        "name": "Nexus_5X_API_27_x86"
       },
       "android.emu.debug": {
         "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
