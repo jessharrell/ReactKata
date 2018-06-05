@@ -1,0 +1,2 @@
+Android E2E build: 
+<img alt="Build status" class="build-status v3-clickable" ng-click="badgeSelected()" ng-src="https://www.bitrise.io/app/e36ec1a4e66de554.svg?token=Y47F8Qa9ZGWy8k6E0q_hjg" src="https://www.bitrise.io/app/e36ec1a4e66de554.svg?token=Y47F8Qa9ZGWy8k6E0q_hjg">
