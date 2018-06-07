@@ -14,7 +14,7 @@
     "test": "jest --testPathPattern=./test",
     "pree2e": "detox build",
     "start-server": "node smoke-test-server.js &",
-    "detox-server" : "detox run-server"
+    "detox-server": "detox run-server"
   },
   "dependencies": {
     "express": "^4.16.2",
@@ -29,7 +29,7 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react-native": "4.0.0",
     "chai": "^4.1.2",
-    "detox": "^7.3.5",
+    "detox": "~7.3.7",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "flow-bin": "^0.71.0",
